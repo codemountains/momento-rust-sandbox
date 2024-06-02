@@ -1,20 +1,16 @@
-mod cache_client;
-mod dictionary;
-mod list;
-mod scalar;
-mod set;
-mod sorted_set;
+mod caching;
+mod simple_caching;
 
-use crate::cache_client::cache_client;
-use crate::dictionary::dictionary;
-use crate::list::list;
-use crate::scalar::scalar;
-use crate::set::set;
-use crate::sorted_set::sorted_set;
+use crate::caching::cache_client::cache_client;
+use crate::simple_caching::dictionary::dictionary;
+use crate::simple_caching::list::list;
+use crate::simple_caching::scalar::scalar;
+use crate::simple_caching::set::set;
+use crate::simple_caching::sorted_set::sorted_set;
+use dotenvy::dotenv;
 use momento::{CredentialProvider, MomentoError, SimpleCacheClientBuilder};
 use std::process;
 use std::time::Duration;
-use dotenvy::dotenv;
 
 #[tokio::main]
 async fn main() -> Result<(), MomentoError> {
